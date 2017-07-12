@@ -35,7 +35,7 @@ public class berkut_nuitka {
         String modulePrefix;
         ArrayList<String> modules;
 
-        public String out() {
+        public String toString() {
             return "path =" + this.path + "\nmodulePrefix =" + this.modulePrefix + "\nmodules =" + this.modules;
         }
 
@@ -56,10 +56,10 @@ public class berkut_nuitka {
             this.nuitka_options = nuitka_options;
         }
 
-        public String out() {
+        public String toString() {
             String s = "directories =";
             for (Directory directory : directories) {
-                s = s + directory.out() + "\n";
+                s = s + directory.toString() + "\n";
             }
             s = s + "nuitka_options =";
             for (String no : nuitka_options) {
@@ -103,7 +103,7 @@ public class berkut_nuitka {
         String json = FileUtils.readFileToString(file, "UTF-8");
         Gson gson = new Gson();
         NuitkaSettings ns = gson.fromJson(json, NuitkaSettings.class);
-        System.out.println(ns.out());
+        System.out.println(ns.toString());
         String st_git = Paths.get(repo, GIT_DIR).toString();
         rmdir(st_git);
 
