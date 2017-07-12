@@ -36,7 +36,7 @@ public class berkut_nuitka {
         ArrayList<String> modules;
 
         public String toString() {
-            return "path =" + this.path + "\nmodulePrefix =" + this.modulePrefix + "\nmodules =" + this.modules;
+            return "path = " + this.path + "\nmodulePrefix = " + this.modulePrefix + "\nmodules = " + this.modules;
         }
 
         public Directory(String path, String modulePrefix, ArrayList<String> modules) {
@@ -57,15 +57,19 @@ public class berkut_nuitka {
         }
 
         public String toString() {
-            String s = "directories =";
+            StringBuilder sb = new StringBuilder();
+            sb.append("directories =");
             for (Directory directory : directories) {
-                s = s + directory.toString() + "\n";
+                sb.append(" ");
+                sb.append(directory.toString());
             }
-            s = s + "nuitka_options =";
+            sb.append("\n");
+            sb.append("nuitka_options =");
             for (String no : nuitka_options) {
-                s = s + no;
+                sb.append(" ");
+                sb.append(no);
             }
-            return s;
+            return sb.toString();
         }
     }
 
